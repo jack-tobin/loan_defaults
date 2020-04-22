@@ -1,5 +1,3 @@
-rm(list=ls())
-
 # set working directory
 setwd('~/Documents/projects/loans')
 
