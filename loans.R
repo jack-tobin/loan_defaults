@@ -13,7 +13,7 @@ source('functions/install_pkgs.R')
 # packages we'll need for the analysis
 packages <- c('caret','tree','rpart','nnet','randomForest',
               'gbm','lars','tidyverse','ggplot2','e1071')
-install.pkgs(packages)
+install_pkgs(packages)
 
 # read in files from kaggle dataset
 # source: https://www.kaggle.com/husainsb/lendingclub-issued-loans
