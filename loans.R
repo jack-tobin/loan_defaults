@@ -18,16 +18,16 @@ install.pkgs(packages)
 # read in files from kaggle dataset
 # source: https://www.kaggle.com/husainsb/lendingclub-issued-loans
 train_f <- file.path('data/lc_loan.csv')
-loans <- read.csv(train_f, header=TRUE, sep=',', stringsAsFactors=FALSE) #, nrow=10000)
+loans <- read.csv(train_f, header=TRUE, sep=',', stringsAsFactors=FALSE)
 
 # apply processing function to the raw data
 loans_scrubbed <- process_data(loans)
 
 # apply principal component analysis
-loans.pca <- pca(loans_scrubbed)
+loans_pca <- pca(loans_scrubbed)
 
 # apply train test split function to partition the data
-train_test <- train_test_split(loans.pca, 0.7)
+train_test <- train_test_split(loans_pca, 0.7)
 train_ <- train_test$train_data
 test_ <- train_test$test_data
 
