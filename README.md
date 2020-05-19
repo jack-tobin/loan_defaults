@@ -19,9 +19,9 @@ Below are selected summary statistics of the results of the prediction against t
 
 | Statistic: | Value: |
 | ---------- | ------ |
-| Accuracy | 0.9831 |
-| Kappa | 0.9224 |
-| Sensitivity | 0.9995 |
-| Specificity | 0.8758 |
+| Accuracy | 0.9747 |
+| Kappa | 0.7935 |
+| Sensitivity | 0.9984 |
+| Specificity | 0.6887 |
 
-The model is clearly good at predicting when a borrower will not default--it can identify a good credit risk. However, the model is only 87% accurate with respect to loans that are true defaults--bad credit risks are a bit trickier to detect. This is likely related to the skewed class proportions within the sample--non-defaulted loans are simply more common than defaulted loans. Accuracy metrics are likely skewed as a result, and more research is necessary to help alleviate this issue.
+I am generally pleased with results of the prediction. The model has high sensitivity (recall), suggesting it correctly predicts true non-default loans over 99% of the time. It is very good at identifying a good credit risk. However, I am concerned with the specificity statistic, which at 0.6887 suggests that the model only correctly predicts defaulted loans about 69% of the time. This is likely a symptom of the imbalanced class proportions in the sample (only 8% of loans in the full sample had defaulted). Ultimately the defaulted loans are the ones that we care about, so more research will be needed to help alleviate this issue. Fixes such as undersampling the non-defaulted loans in the training set are possible improvements. 
