@@ -18,6 +18,7 @@ The specific algorithm I used in this project is a Binomial Generalized Linear M
 Below are selected summary statistics of the results of the prediction against the actual statuses of the loans in the testing sample:
 
 | Statistic: | Value: |
+| ---------- | ------ |
 | Accuracy | 0.9831 |
 | Kappa | 0.9224 |
 | Sensitivity | 0.9995 |
