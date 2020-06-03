@@ -12,7 +12,7 @@ source('functions/install_pkgs.R')
 
 # packages we'll need for the analysis
 packages <- c('caret','tree','rpart','nnet','randomForest',
-              'gbm','lars','tidyverse','ggplot2','e1071')
+              'gbm','lars','tidyverse','ggplot2','e1071','UBL')
 install_pkgs(packages)
 
 # read in files from kaggle dataset
@@ -23,8 +23,15 @@ loans <- read.csv(train_f, header=TRUE, sep=',', stringsAsFactors=FALSE)
 # apply processing function to the raw data
 loans_scrubbed <- process_data(loans)
 
+# undersample the majority class to help with balance issues
+loans_balanced <- RandUnderClassif(
+  loan_status ~ ., 
+  loans_scrubbed, 
+  'balance'
+)
+
 # apply principal component analysis
-loans_pca <- pca(loans_scrubbed)
+loans_pca <- pca(loans_balanced)
 
 # apply train test split function to partition the data
 train_test <- train_test_split(loans_pca, 0.7)
